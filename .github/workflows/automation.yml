@@ -16,6 +16,17 @@ on:
         required: true
         type: string
 
+      environment:
+        description: "Execution Environment"
+        required: true
+        type: choice
+        options:
+          - E2E1
+          - E2E2
+          - QA
+          - UAT
+          - PROD
+
 
 jobs:
 
