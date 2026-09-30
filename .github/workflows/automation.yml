@@ -49,6 +49,9 @@ jobs:
           echo "Excel File:"
           echo "${{ inputs.file_name }}"
 
+          echo "Environment:"
+          echo "${{ inputs.environment }}"
+
           echo "======================================"
 
       - name: Checkout repository
