@@ -1,0 +1,57 @@
+name: Automation Execution
+
+on:
+
+  workflow_dispatch:
+
+    inputs:
+
+      execution_id:
+        description: "Execution ID"
+        required: true
+        type: string
+
+      file_name:
+        description: "Input Excel file"
+        required: true
+        type: string
+
+
+jobs:
+
+  test-trigger:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Display execution information
+        run: |
+
+          echo "======================================"
+          echo "Automation Execution"
+          echo "======================================"
+
+          echo "Execution ID:"
+          echo "${{ inputs.execution_id }}"
+
+          echo "Excel File:"
+          echo "${{ inputs.file_name }}"
+
+          echo "======================================"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check input Excel
+        run: |
+
+          echo "Looking for Excel file..."
+
+          ls -R input-data/
+
+          echo "Checking execution folder..."
+
+          ls -R "input-data/${{ inputs.execution_id }}"
+
+          echo "Excel file found."
